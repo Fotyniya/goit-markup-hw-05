@@ -65,7 +65,7 @@ button {
     padding-top: 24px;
     padding-bottom: 25px;
 }
-.site-nav {
+.menu-nav {
     display: flex;
     column-gap: 50px;
 }
@@ -92,32 +92,40 @@ button {
     color: var(--logo-studio-header);
 }
 /* ======= navigation ======= */
-.site-nav a {
+.menu-nav a {
     position: relative;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.02em;
     color: var(--title-color);
+    padding-bottom: 28px;
     transition: color var(--transition-timing-function);
 }
-.site-nav a:hover, 
-.site-nav a:focus {
+.menu-nav a:hover, 
+.menu-nav a:focus {
     color: var(--accent-color);
 }
-.site-nav a.current {
+.menu-nav a.current {
     color: var(--accent-color);
 }
-.site-nav a.current::after {
+.menu-nav a.current::after {
     position: absolute;
     content: "";
-    top: 50px;
+    bottom: -1px;
     left: 0;
     width: 100%;
     height: 4px;
     border-radius: 2px;
     background-color: var(--accent-color);
-} 
+    animation: opacity-animation var(--transition-timing-function);
+}
+@keyframes opacity-animation {
+    0% {opacity: 0;}
+    50% {opacity: 0.5;}
+    100% {opacity: 1;}
+}
+
 /* ====== styles contacts =========*/
 .contacts-link {
     display: flex;
@@ -241,6 +249,7 @@ section {
     margin-bottom: 50px;
 }
 .title-invisible {
+    position: absolute;
     border: 0;
 	clip: rect(0 0 0 0);
 	height: 1px;
@@ -248,7 +257,6 @@ section {
     margin: -1px;
 	overflow: hidden;
 	padding: 0;
-	position: absolute;
 	white-space: nowrap;
 }
 .subtitle {
